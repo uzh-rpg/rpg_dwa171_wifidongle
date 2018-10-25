@@ -63,5 +63,5 @@ The USB Wifi Dongle has a small storage partition with the Windows drivers insid
 chmod +x automountDWA171.sh
 sudo ./automountDWA171.sh
 ```
-You're done.
+You're done, you can plug the dongle!
 
