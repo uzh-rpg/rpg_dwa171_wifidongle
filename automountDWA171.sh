@@ -7,18 +7,12 @@ if [ "$EUID" -ne 0 ]
 fi
 
 # Install usb-modeswitch package is not available
-echo 'Check if usb-modeswtich package is installed'
-
-if dpkg --get-selections | grep -q "^usb-modeswitch\s*install$"; then 
-   echo 'Package usb-modeswtich already installed! Continuing...'
+echo 'Getting usb-modeswitch package'
+if sudo pacman -S usb_modeswitch --noconfirm; then
+  echo 'Package installed'
 else
-   echo 'Getting usb-modeswitch package'
-   if apt install -y usb-modeswitch; then
-        echo 'Package installed'
-   else
-        echo 'Could not get usb-modeswitch package. Exiting...'
-        exit 
-   fi  
+  echo 'Could not get usb-modeswitch package. Exiting...'
+  exit 
 fi
 
 # Add script to switch usb mode
